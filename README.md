@@ -161,3 +161,6 @@ command-line interface for users to configure and manage their network experimen
   bash klonet_sync_app.sh
   ```
 
+## Cite Us
+Our paper is currently undergoing a blind review. We appreciate your patience and will  
+update the paper information once it has been accepted.
