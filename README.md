@@ -1,5 +1,3 @@
-# NetStorm: Accelerating Geo-distributed Machine Learning with Network-Aware Adaptive Tree and Auxiliary Route
-
 <p align="center">
   <img src="result.png" alt="Experiment Result" width="600" style="max-width: 100%;">
 </p>
