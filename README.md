@@ -1,5 +1,9 @@
 # NetStorm: Accelerating Geo-distributed Machine Learning with Network-Aware Adaptive Tree and Auxiliary Route
 
+<p align="center">
+  <img src="result.png" alt="Experiment Result" width="600" style="max-width: 100%;">
+</p>
+
 The rapid evolution of large-scale AI training has significantly stretched the 
 computational, communication, and storage requirements of distributed machine 
 learning systems, particularly when deployed over WANs. These systems face 
@@ -22,10 +26,6 @@ through multipath parallel transmission. With these optimization techniques,
 NetStorm achieves a speedup of 7.5~9.2 times over the standard MXNET system,
 and outperforms the other two optimized systems, MLNET and TSEngine.
 
-<p align="center">
-  <img src="result.png" alt="Experiment Result" width="700" style="max-width: 100%;">
-</p>
-
 # Quick Start
 This guide will help you get started with NetStorm in only a few minutes. 
 For your convenience, we offer a pre-built Docker image for a quick trial of 
@@ -45,8 +45,6 @@ NetStorm. To use this, ensure you have Docker installed by following the
   # To run on CPUs，use:
   cd netstorm/scripts && bash muti_server_alexnet.sh
   ```
-
-
 
 # Deploy NetStorm on Klonet
 NetStorm can also be deployed on the Klonet platform. Klonet is a network 
