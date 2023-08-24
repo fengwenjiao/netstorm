@@ -1,5 +1,6 @@
+<br><br>
 <p align="center">
-  <img src="icon.png" alt="Icon" width="500" style="max-width: 100%;">
+  <img src="icon.png" alt="Icon" width="700" style="max-width: 100%;">
 </p>
 
 The rapid evolution of large-scale AI training has significantly stretched the 
