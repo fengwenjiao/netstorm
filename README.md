@@ -46,7 +46,7 @@ NetStorm. To use this, ensure you have Docker installed by following the
 
   ```shell
   # To run on CPUs，use:
-  cd netstorm/scripts && bash muti_server_alexnet.sh
+  cd netstorm/scripts/demo && bash muti_server_alexnet.sh
   ```
 
 # Deploy NetStorm on Klonet
