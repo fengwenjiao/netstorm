@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="result.png" alt="Experiment Result" width="600" style="max-width: 100%;">
+  <img src="icon.png" alt="Icon" width="500" style="max-width: 100%;">
 </p>
 
 The rapid evolution of large-scale AI training has significantly stretched the 
@@ -23,6 +23,10 @@ mechanism for more accurate topology decisions and efficient model transmission
 through multipath parallel transmission. With these optimization techniques, 
 NetStorm achieves a speedup of 7.5~9.2 times over the standard MXNET system,
 and outperforms the other two optimized systems, MLNET and TSEngine.
+
+<p align="center">
+  <img src="result.png" alt="Experiment Result" width="600" style="max-width: 100%;">
+</p>
 
 # Quick Start
 This guide will help you get started with NetStorm in only a few minutes. 
