@@ -167,5 +167,5 @@ command-line interface for users to configure and manage their network experimen
   ```
 
 ## Cite Us
-Our paper is currently undergoing a blind review. We appreciate your patience and will  
+Our paper is currently undergoing a blind review. We appreciate your patience and will 
 update the paper information once it has been accepted.
