@@ -133,17 +133,19 @@ command-line interface for users to configure and manage their network experimen
 - Step 4: Set up physical network topology.
 
   ```shell
+  cd netstorm/scripts/klonet-netstorm
+  
   # 1. If previous topology exists, delete it
-  cd netstorm/scripts/klonet-netstorm && python klonet_destroy_topo.py
+  python klonet_destroy_topo.py
   
   # 2. Set up the network topology
-  cd netstorm/scripts/klonet-netstorm && python klonet_deploy_topo.py
+  python klonet_deploy_topo.py
   
   # 3. Port mapping
-  cd netstorm/scripts/klonet-netstorm && python klonet_mapping_port.py
+  python klonet_mapping_port.py
   
   # 4. Manual update script name correspondences, including：klonet_net_dynamic.py klonet_sync_lib.sh klonet_sync_app.sh
-  PS:All three files are in the {netstorm/scripts/klonet-netstorm} directory
+  # All three files are in the {netstorm/scripts/klonet-netstorm} directory
   
   ```
 
@@ -151,30 +153,32 @@ command-line interface for users to configure and manage their network experimen
 
   ```shell
   # Start the speed limit script: (make sure it's always running in the background)
-  cd netstorm/scripts/klonet-netstorm && python klonet_net_dynamic.py
+  python klonet_net_dynamic.py
   ```
 
 - Step 6: Automating the source code synchronization and compilation process.
 
   ```shell
   # 1. Compile netstorm from source files
-  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_works.sh
+  bash klonet_sync_works.sh
+  
   # 2. Synchronize the compiled lib files
-  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_lib.sh
+  bash klonet_sync_lib.sh
+  
   # 3. Synchronize the demo task
-  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_app.sh
+  bash klonet_sync_app.sh
   ```
   
 - Step 7: Start running netstorm
   
   ```shell
-  cd netstorm/scripts/klonet-netstorm && bash klonet_run_start.py
+  bash klonet_run_start.py
   ```
   
 - Step 8: Stop running netstorm
   
   ```shell
-  cd netstorm/scripts/klonet-netstorm && bash klonet_run_stop.py
+  bash klonet_run_stop.py
   ```
  
 ## Cite Us
