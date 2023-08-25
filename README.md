@@ -142,15 +142,15 @@ command-line interface for users to configure and manage their network experimen
   # 3. Port mapping
   cd netstorm/scripts/klonet-netstorm && python klonet_mapping_port.py
   
-  # 4. Manual update script name correspondences, including：klonet_net_dynamic.py klonet_sync_lib.sh klonet_sync_app.sh, all three files are in the {netstorm/scripts/klonet-netstorm} directory
-  Example: assuming 9 nodes, when the topology is deployed, view the names of the topology nodes via docker ps (assuming a,b,c,d,e,f,g,h,i)
-  For klonet_net_dynamic.py, you need to update:
-  sudo docker cp ts-mxnet-app {netstorm-trainer11-ID}:/root/  → sudo docker cp ts-mxnet-app a:/root/ (The remaining eight nodes are the same)
-  For klonet_sync_lib.sh, you need to update:
-  sudo docker cp lib/libmxnet.so {netstorm-trainer1-ID}:/root/mxnet/  → sudo docker cp lib/libmxnet.so a:/root/mxnet/ (The remaining eight nodes are the same)
-  For klonet_sync_app.sh, you need to update:
-  h1 = "6285e039620b5d40"  → h1 = "a" (The remaining eight nodes are the same)
-  
+  # 4. Manually update node names in the scripts.
+  # Suppose that we have 9 nodes deployed, one of which is called netstorm-node0.
+  # Modify klonet_net_dynamic.py as follows:
+  sudo docker cp ts-mxnet-app netstorm-node0:/root/
+  # Modify klonet_sync_lib.sh as follows:
+  sudo docker cp lib/libmxnet.so netstorm-node0:/root/mxnet/
+  # Modify klonet_sync_app.sh as follows:
+  h1 = "netstorm-node0"
+  # This is the same for other nodes.
   ```
 
 - Step 5: Enable Dynamic Networks.
