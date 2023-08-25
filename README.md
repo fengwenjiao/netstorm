@@ -46,7 +46,7 @@ NetStorm. To use this, ensure you have Docker installed by following the
 
   ```shell
   # To run on CPUs，use:
-  cd netstorm/scripts/demo && bash muti_server_alexnet.sh
+  cd netstorm/scripts/demo && bash muti_server_resnet.sh
   ```
 
 # Deploy NetStorm on Klonet
@@ -102,7 +102,7 @@ command-line interface for users to configure and manage their network experimen
 
   ```shell
   # 1. Switch to the same level directory as the job vemu_usetc
-  cd /home/homan/vemu_wudx/wudx/wu_for_ML
+  cd <path to vemu_usetc>
   
   # 2. Start master_gunicorn
   screen -S wudx_master
@@ -134,38 +134,49 @@ command-line interface for users to configure and manage their network experimen
 
   ```shell
   # 1. If previous topology exists, delete it
-  python klonet_destroy_topo.py
+  cd netstorm/scripts/klonet-netstorm && python klonet_destroy_topo.py
   
   # 2. Set up the network topology
-  python klonet_deploy_topo.py
+  cd netstorm/scripts/klonet-netstorm && python klonet_deploy_topo.py
   
   # 3. Port mapping
-  python klonet_mapping_port.py
+  cd netstorm/scripts/klonet-netstorm && python klonet_mapping_port.py
   
-  # 4. Update script name correspondences, including：
-  python klonet_net_dynamic.py
-  bash klonet_sync_lib.sh
-  bash klonet_sync_app.sh
+  # 4. Manual update script name correspondences, including：klonet_net_dynamic.py klonet_sync_lib.sh klonet_sync_app.sh
+  PS:All three files are in the {netstorm/scripts/klonet-netstorm} directory
+  
   ```
 
 - Step 5: Enable Dynamic Networks.
 
   ```shell
   # Start the speed limit script: (make sure it's always running in the background)
-  python klonet_net_dynamic.py
+  cd netstorm/scripts/klonet-netstorm && python klonet_net_dynamic.py
   ```
 
 - Step 6: Automating the source code synchronization and compilation process.
 
   ```shell
-  # 1. Source compilation
-  bash klonet_sync_works.sh
-  # 2. Source sync
-  bash klonet_sync_lib.sh
-  # 3. ts-mxnet-app sync
-  bash klonet_sync_app.sh
+  # 1. Compile netstorm from source files
+  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_works.sh
+  # 2. Synchronize the compiled lib files
+  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_lib.sh
+  # 3. Synchronize the demo task
+  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_app.sh
   ```
-
+  
+- Step 7: Start running netstorm
+  
+  ```shell
+  cd netstorm/scripts/klonet-netstorm && bash klonet_run_start.py
+  ```
+  
+- Step 8: Stop running netstorm
+  
+  ```shell
+  cd netstorm/scripts/klonet-netstorm && bash klonet_run_stop.py
+  ```
+ 
 ## Cite Us
 Our paper is currently undergoing a blind review. We appreciate your patience and will 
 update the paper information once it has been accepted.
