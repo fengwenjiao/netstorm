@@ -133,18 +133,15 @@ command-line interface for users to configure and manage their network experimen
 - Step 4: Set up physical network topology.
 
   ```shell
-  cd netstorm/scripts/klonet-netstorm
-  
   # 1. If previous topology exists, delete it
-  python klonet_destroy_topo.py
+  cd netstorm/scripts/klonet-netstorm && python klonet_destroy_topo.py
   
   # 2. Set up the network topology
-  python klonet_deploy_topo.py
+  cd netstorm/scripts/klonet-netstorm && python klonet_deploy_topo.py
   
   # 3. Port mapping
-  python klonet_mapping_port.py
+  cd netstorm/scripts/klonet-netstorm && python klonet_mapping_port.py
   
-<<<<<<< HEAD
   # 4. Manual update script name correspondences, including：klonet_net_dynamic.py klonet_sync_lib.sh klonet_sync_app.sh, all three files are in the {netstorm/scripts/klonet-netstorm} directory
   Example: assuming 9 nodes, when the topology is deployed, view the names of the topology nodes via docker ps (assuming a,b,c,d,e,f,g,h,i)
   For klonet_net_dynamic.py, you need to update:
@@ -153,43 +150,37 @@ command-line interface for users to configure and manage their network experimen
   sudo docker cp lib/libmxnet.so {netstorm-trainer1-ID}:/root/mxnet/  → sudo docker cp lib/libmxnet.so a:/root/mxnet/ (The remaining eight nodes are the same)
   For klonet_sync_app.sh, you need to update:
   h1 = "6285e039620b5d40"  → h1 = "a" (The remaining eight nodes are the same)
-=======
-  # 4. Manual update script name correspondences, including：klonet_net_dynamic.py klonet_sync_lib.sh klonet_sync_app.sh
-  # All three files are in the {netstorm/scripts/klonet-netstorm} directory
   
->>>>>>> 1ffe23e9364fef0b997a0c8f8865c22a42450afd
   ```
 
 - Step 5: Enable Dynamic Networks.
 
   ```shell
   # Start the speed limit script: (make sure it's always running in the background)
-  python klonet_net_dynamic.py
+  cd netstorm/scripts/klonet-netstorm && python klonet_net_dynamic.py
   ```
 
 - Step 6: Automating the source code synchronization and compilation process.
 
   ```shell
   # 1. Compile netstorm from source files
-  bash klonet_sync_works.sh
-  
+  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_works.sh
   # 2. Synchronize the compiled lib files
-  bash klonet_sync_lib.sh
-  
+  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_lib.sh
   # 3. Synchronize the demo task
-  bash klonet_sync_app.sh
+  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_app.sh
   ```
   
 - Step 7: Start running netstorm
   
   ```shell
-  bash klonet_run_start.py
+  cd netstorm/scripts/klonet-netstorm && bash klonet_run_start.py
   ```
   
 - Step 8: Stop running netstorm
   
   ```shell
-  bash klonet_run_stop.py
+  cd netstorm/scripts/klonet-netstorm && bash klonet_run_stop.py
   ```
  
 ## Cite Us
