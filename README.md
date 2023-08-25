@@ -151,7 +151,6 @@ command-line interface for users to configure and manage their network experimen
   For klonet_sync_app.sh, you need to update:
   h1 = "6285e039620b5d40"  → h1 = "a" (The remaining eight nodes are the same)
   ```
-  ```
 
 - Step 5: Enable Dynamic Networks.
 
