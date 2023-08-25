@@ -141,7 +141,7 @@ command-line interface for users to configure and manage their network experimen
   
   # 3. Port mapping
   cd netstorm/scripts/klonet-netstorm && python klonet_mapping_port.py
-  
+
   # 4. Manually update node names in the scripts.
   # Suppose that we have 9 nodes deployed, one of which is called netstorm-node0.
   # Modify klonet_net_dynamic.py as follows:
