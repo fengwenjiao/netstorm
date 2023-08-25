@@ -50,8 +50,7 @@ NetStorm. To use this, ensure you have Docker installed by following the
   ```
 
 # Deploy NetStorm on Klonet
-NetStorm can also be deployed on the Klonet platform. Klonet is a network 
-emulation platform for the technology innovation. It is designed to support 
+Klonet is a network emulation platform designed to support 
 the development and testing of new network protocols and applications in a 
 realistic environment. Klonet can emulate various network scenarios, such as 
 wireless, mobile, satellite, and optical networks, and provide fine-grained 
@@ -70,23 +69,23 @@ command-line interface for users to configure and manage their network experimen
 
   ```shell
   # 1. Start rabbitmq-server
-  sudo docker start rabbitmq-server
+  sudo docker start klonet/rabbitmq-server
   
   # 2. Start redis-celery
-  sudo docker start redis-celery
+  sudo docker start klonet/redis-celery
   
   # 3. Start mysql-vemu
-  sudo docker start mysql-vemu
+  sudo docker start klonet/mysql-vemu
   
   # 4. Start registry
-  sudo docker start registry
+  sudo docker start klonet/registry
   ```
 
 - Step 2: Start redis (port 8368).
 
   ```shell
   # 1. Start the redis database (8368)
-  cd /root/vemu_install_new_gen/install_redis/  # Switch to the directory of the configuration file redis.conf
+  cd /root/vemu_install_new_gen/install_redis/  # Enter the directory of the configuration file
   /usr/local/bin/redis-server redis.conf &
   
   # 2. Check if redis (8368) is working properly
@@ -133,22 +132,24 @@ command-line interface for users to configure and manage their network experimen
 - Step 4: Set up physical network topology.
 
   ```shell
+  cd netstorm/scripts/klonet-netstorm
+  
   # 1. If previous topology exists, delete it
-  cd netstorm/scripts/klonet-netstorm && python klonet_destroy_topo.py
+  python klonet_destroy_topo.py
   
   # 2. Set up the network topology
-  cd netstorm/scripts/klonet-netstorm && python klonet_deploy_topo.py
+  python klonet_deploy_topo.py
   
   # 3. Port mapping
-  cd netstorm/scripts/klonet-netstorm && python klonet_mapping_port.py
+  python klonet_mapping_port.py
 
-  # 4. Manually update node names in the scripts.
+  # 4. Manually update the scripts if source code and demo scripts are modified.
   # Suppose that we have 9 nodes deployed, one of which is called netstorm-node0.
-  # Modify klonet_net_dynamic.py as follows:
+  # Modify klonet_net_dynamic.py:
   sudo docker cp ts-mxnet-app netstorm-node0:/root/
-  # Modify klonet_sync_lib.sh as follows:
+  # Modify klonet_sync_lib.sh:
   sudo docker cp lib/libmxnet.so netstorm-node0:/root/mxnet/
-  # Modify klonet_sync_app.sh as follows:
+  # Modify klonet_sync_app.sh:
   h1 = "netstorm-node0"
   # This is the same for other nodes.
   ```
@@ -156,33 +157,20 @@ command-line interface for users to configure and manage their network experimen
 - Step 5: Enable Dynamic Networks.
 
   ```shell
-  # Start the speed limit script: (make sure it's always running in the background)
-  cd netstorm/scripts/klonet-netstorm && python klonet_net_dynamic.py
+  # Use this script to change bandwidth limitation, make sure to run it in the background.
+  python klonet_net_dynamic.py
   ```
+  
+- Step 6: Start or stop NetStorm.
+  
+  ```shell
+  # To start, use:
+  bash klonet_run_start.py
 
-- Step 6: Automating the source code synchronization and compilation process.
-
-  ```shell
-  # 1. Compile netstorm from source files
-  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_works.sh
-  # 2. Synchronize the compiled lib files
-  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_lib.sh
-  # 3. Synchronize the demo task
-  cd netstorm/scripts/klonet-netstorm && bash klonet_sync_app.sh
+  # To stop, use:
+  bash klonet_run_stop.py
   ```
   
-- Step 7: Start running netstorm
-  
-  ```shell
-  cd netstorm/scripts/klonet-netstorm && bash klonet_run_start.py
-  ```
-  
-- Step 8: Stop running netstorm
-  
-  ```shell
-  cd netstorm/scripts/klonet-netstorm && bash klonet_run_stop.py
-  ```
- 
 ## Cite Us
 Our paper is currently undergoing a blind review. We appreciate your patience and will 
 update the paper information once it has been accepted.
