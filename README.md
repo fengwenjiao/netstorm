@@ -172,5 +172,6 @@ command-line interface for users to configure and manage their network experimen
   ```
   
 ## Cite Us
-Our paper is currently undergoing review. We appreciate your patience and will 
-update the paper information once it has been accepted.
+If you find this work is helpful to you, please kindly cite us, thank you!
+
+> Li, Zonghang, Wenjiao Feng, Weibo Cai, Hongfang Yu, Long Luo, Gang Sun, Hongyang Du, and Dusit Niyato. "Accelerating Geo-distributed Machine Learning with Network-Aware Adaptive Tree and Auxiliary Route." IEEE/ACM Transactions on Networking, 2024.
